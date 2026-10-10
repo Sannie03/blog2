@@ -12,6 +12,16 @@
   ],
   "rewrites": [
     {
+      "source": "/story/:slug",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(facebookexternalhit|Facebot|facebot|Twitterbot|twitterbot|LinkedInBot|linkedinbot|Slackbot|slackbot|Discordbot|discordbot|WhatsApp|whatsapp|TelegramBot|telegrambot|Zalo|zalo|Pinterest|pinterest|SkypeUriPreview|skypeuripreview|Googlebot|googlebot|bingbot).*" }],
+      "destination": "https://blog2-2o8q.onrender.com/story/:slug"
+    },
+    {
+      "source": "/post/:slug",
+      "has": [{ "type": "header", "key": "user-agent", "value": ".*(facebookexternalhit|Facebot|facebot|Twitterbot|twitterbot|LinkedInBot|linkedinbot|Slackbot|slackbot|Discordbot|discordbot|WhatsApp|whatsapp|TelegramBot|telegrambot|Zalo|zalo|Pinterest|pinterest|SkypeUriPreview|skypeuripreview|Googlebot|googlebot|bingbot).*" }],
+      "destination": "https://blog2-2o8q.onrender.com/story/:slug"
+    },
+    {
       "source": "/ads.txt",
       "destination": "/ads.txt"
     },

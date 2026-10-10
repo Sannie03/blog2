@@ -60,7 +60,7 @@ function createPublicRouter(pool) {
       const crawlerContent = escapeHtml(post.description || '').replace(/\r?\n/g, '<br>');
       const frontendIndexPath = path.join(frontendDist, 'index.html');
       const sameDomainRedirect = frontendUrl === requestOrigin;
-      const isCrawler = /facebookexternalhit|facebot|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|googlebot|bingbot/i.test(request.get('user-agent') || '');
+      const isCrawler = /facebookexternalhit|facebot|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|zalo|pinterest|skypeuripreview|googlebot|bingbot/i.test(request.get('user-agent') || '');
 
       if (request.path.startsWith('/post/') && !isCrawler) return response.redirect(301, articleUrl);
       if (!isCrawler && !fs.existsSync(frontendIndexPath) && !sameDomainRedirect) {
@@ -76,7 +76,7 @@ function createPublicRouter(pool) {
         <meta property="og:description" content="${description}">
         <meta property="og:url" content="${escapeHtml(articleUrl)}">
         <meta property="article:author" content="${author}">
-        ${image ? `<meta property="og:image" content="${image}"><meta property="og:image:secure_url" content="${image}"><meta property="og:image:type" content="${imageType}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${title}">` : ''}
+        ${image ? `<meta property="og:image" content="${image}">${imageUrl.startsWith('https://') ? `<meta property="og:image:secure_url" content="${image}">` : ''}<meta property="og:image:type" content="${imageType}"><meta property="og:image:alt" content="${title}">` : ''}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:creator" content="${author}">
         <meta name="twitter:title" content="${title}">
