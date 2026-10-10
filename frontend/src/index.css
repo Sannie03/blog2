@@ -1,0 +1,35 @@
+:root {
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #171717;
+  background: #fffefd;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #fffefd;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  font-family: inherit;
+}

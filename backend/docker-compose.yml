@@ -1,0 +1,19 @@
+name: bogs2
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bogs2_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: bogs2
+      POSTGRES_USER: bogs2
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}
+    ports:
+      - '127.0.0.1:5434:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./src/migrate.sql:/docker-entrypoint-initdb.d/migrate.sql
+
+volumes:
+  postgres_data:
