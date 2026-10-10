@@ -2,11 +2,6 @@
 
 This copy uses its own PostgreSQL database, Docker volume and secrets.
 
-Production startup (`npm start`) initializes database tables and runs migrations
-before starting the server. Configure `DATABASE_URL` for the new online database.
-This creates the schema without adding posts or an admin account. If migration
-fails, the server does not start.
-
 Start Docker Desktop first, then run:
 
 ```powershell
