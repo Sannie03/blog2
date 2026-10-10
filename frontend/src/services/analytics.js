@@ -1,4 +1,5 @@
-const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID || '').trim()
+// Keep tracking configured even when the hosting environment has no ID set.
+const measurementId = (import.meta.env.VITE_GA_MEASUREMENT_ID || '').trim() || 'G-50HNG6MNDX'
 
 export function initializeAnalytics() {
   if (!/^G-[A-Z0-9]+$/.test(measurementId)) return
